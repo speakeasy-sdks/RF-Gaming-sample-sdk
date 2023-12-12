@@ -72,11 +72,7 @@ pip install git+https://github.com/speakeasy-sdks/RF-Gaming-sample-sdk.git
 import speakeasybar
 from speakeasybar.models import operations, shared
 
-s = speakeasybar.Speakeasybar(
-    security=shared.Security(
-        api_key="",
-    ),
-)
+s = speakeasybar.Speakeasybar()
 
 
 res = s.drinks.list_drinks(drink_type=shared.DrinkType.SPIRIT)
@@ -134,7 +130,7 @@ from speakeasybar.models import operations, shared
 
 s = speakeasybar.Speakeasybar(
     security=shared.Security(
-        api_key="",
+        api_key="<YOUR_API_KEY_HERE>",
     ),
 )
 
@@ -180,7 +176,7 @@ from speakeasybar.models import operations, shared
 s = speakeasybar.Speakeasybar(
     server="customer",
     security=shared.Security(
-        api_key="",
+        api_key="<YOUR_API_KEY_HERE>",
     ),
 )
 
@@ -209,7 +205,7 @@ from speakeasybar.models import operations, shared
 s = speakeasybar.Speakeasybar(
     server_url="https://speakeasy.bar",
     security=shared.Security(
-        api_key="",
+        api_key="<YOUR_API_KEY_HERE>",
     ),
 )
 
@@ -261,7 +257,7 @@ from speakeasybar.models import operations, shared
 
 s = speakeasybar.Speakeasybar(
     security=shared.Security(
-        api_key="",
+        api_key="<YOUR_API_KEY_HERE>",
     ),
 )
 

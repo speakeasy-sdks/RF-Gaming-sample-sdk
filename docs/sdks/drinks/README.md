@@ -22,7 +22,7 @@ from speakeasybar.models import operations, shared
 
 s = speakeasybar.Speakeasybar(
     security=shared.Security(
-        api_key="",
+        api_key="<YOUR_API_KEY_HERE>",
     ),
 )
 
@@ -61,11 +61,7 @@ Get a list of drinks, if authenticated this will include stock levels and produc
 import speakeasybar
 from speakeasybar.models import operations, shared
 
-s = speakeasybar.Speakeasybar(
-    security=shared.Security(
-        api_key="",
-    ),
-)
+s = speakeasybar.Speakeasybar()
 
 
 res = s.drinks.list_drinks(drink_type=shared.DrinkType.SPIRIT)

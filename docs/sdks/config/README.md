@@ -17,7 +17,7 @@ from speakeasybar.models import operations, shared
 
 s = speakeasybar.Speakeasybar(
     security=shared.Security(
-        api_key="",
+        api_key="<YOUR_API_KEY_HERE>",
     ),
 )
 

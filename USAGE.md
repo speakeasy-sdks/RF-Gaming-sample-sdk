@@ -3,11 +3,7 @@
 import speakeasybar
 from speakeasybar.models import operations, shared
 
-s = speakeasybar.Speakeasybar(
-    security=shared.Security(
-        api_key="",
-    ),
-)
+s = speakeasybar.Speakeasybar()
 
 
 res = s.drinks.list_drinks(drink_type=shared.DrinkType.SPIRIT)
