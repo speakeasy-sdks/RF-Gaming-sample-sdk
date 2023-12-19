@@ -120,7 +120,7 @@ Handling errors in this SDK should largely match your expectations.  All operati
 | Error Object     | Status Code      | Content Type     |
 | ---------------- | ---------------- | ---------------- |
 | errors.APIError  | 5XX              | application/json |
-| errors.SDKError  | 400-600          | */*              |
+| errors.SDKError  | 4x-5xx           | */*              |
 
 ### Example
 
