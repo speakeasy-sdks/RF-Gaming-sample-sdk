@@ -1,4 +1,5 @@
-# authentication
+# Authentication
+(*authentication*)
 
 ## Overview
 
@@ -20,19 +21,17 @@ from speakeasybar.models import operations, shared
 
 s = speakeasybar.Speakeasybar(
     security=shared.Security(
-        api_key="",
+        api_key="<YOUR_API_KEY_HERE>",
     ),
 )
 
-req = operations.AuthenticateRequestBody(
-    password='provident',
-    username='Micheal_Sporer',
-)
+req = operations.AuthenticateRequestBody()
 
 res = s.authentication.authenticate(req)
 
-if res.authenticate_200_application_json_object is not None:
+if res.object is not None:
     # handle response
+    pass
 ```
 
 ### Parameters
@@ -45,4 +44,9 @@ if res.authenticate_200_application_json_object is not None:
 ### Response
 
 **[operations.AuthenticateResponse](../../models/operations/authenticateresponse.md)**
+### Errors
 
+| Error Object     | Status Code      | Content Type     |
+| ---------------- | ---------------- | ---------------- |
+| errors.APIError  | 5XX              | application/json |
+| errors.SDKError  | 4x-5xx           | */*              |

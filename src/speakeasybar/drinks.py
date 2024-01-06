@@ -3,7 +3,7 @@
 from .sdkconfiguration import SDKConfiguration
 from speakeasybar import utils
 from speakeasybar.models import errors, operations, shared
-from typing import Optional
+from typing import List, Optional
 
 class Drinks:
     r"""The drinks endpoints."""
@@ -12,6 +12,7 @@ class Drinks:
     def __init__(self, sdk_config: SDKConfiguration) -> None:
         self.sdk_configuration = sdk_config
         
+    
     
     def get_drink(self, name: str) -> operations.GetDrinkResponse:
         r"""Get a drink.
@@ -26,13 +27,16 @@ class Drinks:
         url = utils.generate_url(operations.GetDrinkRequest, base_url, '/drink/{name}', request)
         headers = {}
         headers['Accept'] = 'application/json'
-        headers['user-agent'] = f'speakeasy-sdk/{self.sdk_configuration.language} {self.sdk_configuration.sdk_version} {self.sdk_configuration.gen_version} {self.sdk_configuration.openapi_doc_version}'
+        headers['user-agent'] = self.sdk_configuration.user_agent
         
-        client = self.sdk_configuration.security_client
+        if callable(self.sdk_configuration.security):
+            client = utils.configure_security_client(self.sdk_configuration.client, self.sdk_configuration.security())
+        else:
+            client = utils.configure_security_client(self.sdk_configuration.client, self.sdk_configuration.security)
         
         http_res = client.request('GET', url, headers=headers)
         content_type = http_res.headers.get('Content-Type')
-
+        
         res = operations.GetDrinkResponse(status_code=http_res.status_code, content_type=content_type, raw_response=http_res)
         
         if http_res.status_code == 200:
@@ -60,6 +64,7 @@ class Drinks:
         return res
 
     
+    
     def list_drinks(self, drink_type: Optional[shared.DrinkType] = None) -> operations.ListDrinksResponse:
         r"""Get a list of drinks.
         Get a list of drinks, if authenticated this will include stock levels and product codes otherwise it will only include public information.
@@ -74,19 +79,19 @@ class Drinks:
         headers = {}
         query_params = utils.get_query_params(operations.ListDrinksRequest, request)
         headers['Accept'] = 'application/json'
-        headers['user-agent'] = f'speakeasy-sdk/{self.sdk_configuration.language} {self.sdk_configuration.sdk_version} {self.sdk_configuration.gen_version} {self.sdk_configuration.openapi_doc_version}'
+        headers['user-agent'] = self.sdk_configuration.user_agent
         
-        client = self.sdk_configuration.security_client
+        client = self.sdk_configuration.client
         
         http_res = client.request('GET', url, params=query_params, headers=headers)
         content_type = http_res.headers.get('Content-Type')
-
+        
         res = operations.ListDrinksResponse(status_code=http_res.status_code, content_type=content_type, raw_response=http_res)
         
         if http_res.status_code == 200:
             if utils.match_content_type(content_type, 'application/json'):
-                out = utils.unmarshal_json(http_res.text, Optional[list[shared.Drink]])
-                res.drinks = out
+                out = utils.unmarshal_json(http_res.text, Optional[List[shared.Drink]])
+                res.classes = out
             else:
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
         elif http_res.status_code >= 400 and http_res.status_code < 500:

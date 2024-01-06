@@ -1,4 +1,5 @@
-# drinks
+# Drinks
+(*drinks*)
 
 ## Overview
 
@@ -21,15 +22,16 @@ from speakeasybar.models import operations, shared
 
 s = speakeasybar.Speakeasybar(
     security=shared.Security(
-        api_key="",
+        api_key="<YOUR_API_KEY_HERE>",
     ),
 )
 
 
-res = s.drinks.get_drink(name='deserunt')
+res = s.drinks.get_drink(name='string')
 
 if res.drink is not None:
     # handle response
+    pass
 ```
 
 ### Parameters
@@ -42,7 +44,12 @@ if res.drink is not None:
 ### Response
 
 **[operations.GetDrinkResponse](../../models/operations/getdrinkresponse.md)**
+### Errors
 
+| Error Object     | Status Code      | Content Type     |
+| ---------------- | ---------------- | ---------------- |
+| errors.APIError  | 5XX              | application/json |
+| errors.SDKError  | 4x-5xx           | */*              |
 
 ## list_drinks
 
@@ -54,17 +61,14 @@ Get a list of drinks, if authenticated this will include stock levels and produc
 import speakeasybar
 from speakeasybar.models import operations, shared
 
-s = speakeasybar.Speakeasybar(
-    security=shared.Security(
-        api_key="",
-    ),
-)
+s = speakeasybar.Speakeasybar()
 
 
-res = s.drinks.list_drinks(drink_type=shared.DrinkType.BEER)
+res = s.drinks.list_drinks(drink_type=shared.DrinkType.SPIRIT)
 
-if res.drinks is not None:
+if res.classes is not None:
     # handle response
+    pass
 ```
 
 ### Parameters
@@ -77,4 +81,9 @@ if res.drinks is not None:
 ### Response
 
 **[operations.ListDrinksResponse](../../models/operations/listdrinksresponse.md)**
+### Errors
 
+| Error Object     | Status Code      | Content Type     |
+| ---------------- | ---------------- | ---------------- |
+| errors.APIError  | 5XX              | application/json |
+| errors.SDKError  | 4x-5xx           | */*              |
