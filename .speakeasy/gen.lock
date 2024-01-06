@@ -4,15 +4,15 @@ management:
   docChecksum: 8db86c8597b22945c2b3f77241037075
   docVersion: 1.0.0
   speakeasyVersion: internal
-  generationVersion: 2.225.2
-  releaseVersion: 3.3.0
-  configChecksum: d1f57d2575e8cd954b8becadadfcd06f
+  generationVersion: 2.228.1
+  releaseVersion: 3.3.1
+  configChecksum: 3fe44c0cf6cff03ff65f0cce8f9828a6
   repoURL: https://github.com/speakeasy-sdks/RF-Gaming-sample-sdk.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/RF-Gaming-sample-sdk.git
 features:
   python:
-    core: 4.4.0
+    core: 4.4.1
     errors: 2.81.8
     examples: 2.81.3
     flattening: 2.81.1
