@@ -1,7 +1,7 @@
 <!-- Start SDK Example Usage [usage] -->
 ```python
 import speakeasybar
-from speakeasybar.models import operations, shared
+from speakeasybar.models import shared
 
 s = speakeasybar.Speakeasybar()
 

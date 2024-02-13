@@ -70,7 +70,7 @@ pip install git+https://github.com/speakeasy-sdks/RF-Gaming-sample-sdk.git
 
 ```python
 import speakeasybar
-from speakeasybar.models import operations, shared
+from speakeasybar.models import shared
 
 s = speakeasybar.Speakeasybar()
 
@@ -126,7 +126,7 @@ Handling errors in this SDK should largely match your expectations.  All operati
 
 ```python
 import speakeasybar
-from speakeasybar.models import operations, shared
+from speakeasybar.models import errors, operations, shared
 
 s = speakeasybar.Speakeasybar(
     security=shared.Security(
@@ -140,10 +140,10 @@ res = None
 try:
     res = s.authentication.authenticate(req)
 except errors.APIError as e:
-    print(e)  # handle exception
+    # handle exception
     raise(e)
 except errors.SDKError as e:
-    print(e)  # handle exception
+    # handle exception
     raise(e)
 
 if res.object is not None:
