@@ -72,7 +72,11 @@ pip install git+https://github.com/speakeasy-sdks/RF-Gaming-sample-sdk.git
 import speakeasybar
 from speakeasybar.models import shared
 
-s = speakeasybar.Speakeasybar()
+s = speakeasybar.Speakeasybar(
+    security=shared.Security(
+        api_key="<YOUR_API_KEY_HERE>",
+    ),
+)
 
 
 res = s.drinks.list_drinks(drink_type=shared.DrinkType.SPIRIT)
@@ -126,13 +130,9 @@ Handling errors in this SDK should largely match your expectations.  All operati
 
 ```python
 import speakeasybar
-from speakeasybar.models import errors, operations, shared
+from speakeasybar.models import errors, operations
 
-s = speakeasybar.Speakeasybar(
-    security=shared.Security(
-        api_key="<YOUR_API_KEY_HERE>",
-    ),
-)
+s = speakeasybar.Speakeasybar()
 
 req = operations.AuthenticateRequestBody()
 
@@ -171,13 +171,10 @@ You can override the default server globally by passing a server name to the `se
 
 ```python
 import speakeasybar
-from speakeasybar.models import operations, shared
+from speakeasybar.models import operations
 
 s = speakeasybar.Speakeasybar(
     server="customer",
-    security=shared.Security(
-        api_key="<YOUR_API_KEY_HERE>",
-    ),
 )
 
 req = operations.AuthenticateRequestBody()
@@ -200,13 +197,10 @@ Some of the server options above contain variables. If you want to set the value
 The default server can also be overridden globally by passing a URL to the `server_url: str` optional parameter when initializing the SDK client instance. For example:
 ```python
 import speakeasybar
-from speakeasybar.models import operations, shared
+from speakeasybar.models import operations
 
 s = speakeasybar.Speakeasybar(
     server_url="https://speakeasy.bar",
-    security=shared.Security(
-        api_key="<YOUR_API_KEY_HERE>",
-    ),
 )
 
 req = operations.AuthenticateRequestBody()

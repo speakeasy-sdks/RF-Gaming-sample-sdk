@@ -17,13 +17,9 @@ Authenticate with the API by providing a username and password.
 
 ```python
 import speakeasybar
-from speakeasybar.models import operations, shared
+from speakeasybar.models import operations
 
-s = speakeasybar.Speakeasybar(
-    security=shared.Security(
-        api_key="<YOUR_API_KEY_HERE>",
-    ),
-)
+s = speakeasybar.Speakeasybar()
 
 req = operations.AuthenticateRequestBody()
 
