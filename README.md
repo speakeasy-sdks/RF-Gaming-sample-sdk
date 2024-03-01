@@ -72,11 +72,7 @@ pip install git+https://github.com/speakeasy-sdks/RF-Gaming-sample-sdk.git
 import speakeasybar
 from speakeasybar.models import shared
 
-s = speakeasybar.Speakeasybar(
-    security=shared.Security(
-        api_key="<YOUR_API_KEY_HERE>",
-    ),
-)
+s = speakeasybar.Speakeasybar()
 
 
 res = s.drinks.list_drinks(drink_type=shared.DrinkType.SPIRIT)
