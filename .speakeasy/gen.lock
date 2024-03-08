@@ -3,23 +3,24 @@ id: 9ea86e9f-4bc0-49ea-912d-63712bd9d67e
 management:
   docChecksum: 8db86c8597b22945c2b3f77241037075
   docVersion: 1.0.0
-  speakeasyVersion: internal
-  generationVersion: 2.275.4
-  releaseVersion: 5.2.0
-  configChecksum: 69be6315c4e8ccff3ac2bc23994541c0
+  speakeasyVersion: 1.204.1
+  generationVersion: 2.279.1
+  releaseVersion: 5.3.0
+  configChecksum: a274bfe40d6585c583798dc92ae346a7
   repoURL: https://github.com/speakeasy-sdks/RF-Gaming-sample-sdk.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/RF-Gaming-sample-sdk.git
 features:
   python:
     callbacks: 1.0.0
-    core: 4.5.0
+    core: 4.5.1
     errors: 2.81.8
     examples: 2.81.3
     flattening: 2.81.1
     globalSecurity: 2.83.4
     globalServerURLs: 2.82.1
     inputOutputModels: 2.83.1
+    responseFormat: 0.1.0
     serverIDs: 2.81.1
     webhooks: 1.0.0
 generatedFiles:
@@ -30,6 +31,7 @@ generatedFiles:
   - src/speakeasybar/orders.py
   - src/speakeasybar/config.py
   - src/speakeasybar/sdk.py
+  - py.typed
   - pylintrc
   - setup.py
   - src/speakeasybar/__init__.py

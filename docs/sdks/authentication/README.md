@@ -28,6 +28,7 @@ res = s.authentication.authenticate(req)
 if res.object is not None:
     # handle response
     pass
+
 ```
 
 ### Parameters
