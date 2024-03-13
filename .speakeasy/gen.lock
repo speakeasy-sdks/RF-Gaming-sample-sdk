@@ -3,10 +3,10 @@ id: 9ea86e9f-4bc0-49ea-912d-63712bd9d67e
 management:
   docChecksum: 8db86c8597b22945c2b3f77241037075
   docVersion: 1.0.0
-  speakeasyVersion: 1.204.1
-  generationVersion: 2.279.1
-  releaseVersion: 5.3.0
-  configChecksum: a274bfe40d6585c583798dc92ae346a7
+  speakeasyVersion: 1.207.1
+  generationVersion: 2.280.6
+  releaseVersion: 5.3.1
+  configChecksum: bf3fa886e8be6b3be2d483ba3a9013fd
   repoURL: https://github.com/speakeasy-sdks/RF-Gaming-sample-sdk.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/RF-Gaming-sample-sdk.git
@@ -18,7 +18,7 @@ features:
     examples: 2.81.3
     flattening: 2.81.1
     globalSecurity: 2.83.4
-    globalServerURLs: 2.82.1
+    globalServerURLs: 2.82.2
     inputOutputModels: 2.83.1
     responseFormat: 0.1.0
     serverIDs: 2.81.1
