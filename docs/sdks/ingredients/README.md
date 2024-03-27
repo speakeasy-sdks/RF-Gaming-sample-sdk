@@ -1,4 +1,5 @@
-# ingredients
+# Ingredients
+(*ingredients*)
 
 ## Overview
 
@@ -16,32 +17,38 @@ Get a list of ingredients, if authenticated this will include stock levels and p
 
 ```python
 import speakeasybar
-from speakeasybar.models import operations, shared
+from speakeasybar.models import shared
 
 s = speakeasybar.Speakeasybar(
     security=shared.Security(
-        api_key="",
+        api_key="<YOUR_API_KEY_HERE>",
     ),
 )
 
 
 res = s.ingredients.list_ingredients(ingredients=[
-    'magnam',
-    'debitis',
+    '<value>',
 ])
 
-if res.ingredients is not None:
+if res.classes is not None:
     # handle response
+    pass
+
 ```
 
 ### Parameters
 
 | Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
 | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `ingredients`                                                                         | list[*str*]                                                                           | :heavy_minus_sign:                                                                    | A list of ingredients to filter by. If not provided all ingredients will be returned. |
+| `ingredients`                                                                         | List[*str*]                                                                           | :heavy_minus_sign:                                                                    | A list of ingredients to filter by. If not provided all ingredients will be returned. |
 
 
 ### Response
 
 **[operations.ListIngredientsResponse](../../models/operations/listingredientsresponse.md)**
+### Errors
 
+| Error Object     | Status Code      | Content Type     |
+| ---------------- | ---------------- | ---------------- |
+| errors.APIError  | 5XX              | application/json |
+| errors.SDKError  | 4x-5xx           | */*              |

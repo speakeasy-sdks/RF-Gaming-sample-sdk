@@ -1,20 +1,16 @@
-<!-- Start SDK Example Usage -->
-
-
+<!-- Start SDK Example Usage [usage] -->
 ```python
 import speakeasybar
-from speakeasybar.models import operations, shared
+from speakeasybar.models import shared
 
-s = speakeasybar.Speakeasybar(
-    security=shared.Security(
-        api_key="",
-    ),
-)
+s = speakeasybar.Speakeasybar()
 
 
-res = s.drinks.list_drinks(drink_type=shared.DrinkType.WINE)
+res = s.drinks.list_drinks(drink_type=shared.DrinkType.SPIRIT)
 
-if res.drinks is not None:
+if res.classes is not None:
     # handle response
+    pass
+
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->
